@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <!-- Project from https://start.vaadin.com/project/09ca84fb-a9d2-4555-940b-a2ea523da5d9 -->
     <groupId>com.example.application</groupId>
@@ -11,7 +12,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <vaadin.version>23.0.0</vaadin.version>
+        <vaadin.version>23.0.2</vaadin.version>
     </properties>
 
     <parent>
@@ -138,6 +139,11 @@
             <artifactId>webdrivermanager</artifactId>
             <version>5.0.3</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.vaadin.olli</groupId>
+            <artifactId>file-download-wrapper</artifactId>
+            <version>3.0.1</version>
         </dependency>
     </dependencies>
 
