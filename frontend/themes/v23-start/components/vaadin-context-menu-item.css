@@ -1,0 +1,5 @@
+/* these styles get applied to all elements with the theme attribute 'toggled' */
+:host([theme~="toggled"]) {
+    color: blue;
+    background: lightgray;
+}

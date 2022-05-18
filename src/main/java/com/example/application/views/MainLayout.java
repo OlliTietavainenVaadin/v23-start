@@ -23,6 +23,7 @@ import com.vaadin.flow.component.html.ListItem;
 import com.vaadin.flow.component.html.Nav;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.html.UnorderedList;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.RouterLink;
 
@@ -40,7 +41,9 @@ public class MainLayout extends AppLayout {
 
         public MenuItemInfo(String menuTitle, String iconClass, Class<? extends Component> view) {
             this.view = view;
+            VerticalLayout layout = new VerticalLayout();
             RouterLink link = new RouterLink();
+
             // Use Lumo classnames for various styling
             link.addClassNames("flex", "mx-s", "p-s", "relative", "text-secondary");
             link.setRoute(view);

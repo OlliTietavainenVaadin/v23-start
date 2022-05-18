@@ -1,0 +1,7 @@
+/* these styles get applied to all
+   vaadin-menu-bar components and their light-DOM children
+   */
+* {
+    color: green;
+    padding: 0;
+}

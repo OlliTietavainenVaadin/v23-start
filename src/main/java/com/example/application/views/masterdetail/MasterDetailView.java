@@ -3,6 +3,7 @@ package com.example.application.views.masterdetail;
 import com.example.application.data.entity.SamplePerson;
 import com.example.application.data.service.SamplePersonService;
 import com.example.application.views.MainLayout;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.combobox.ComboBox;
@@ -12,6 +13,7 @@ import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.splitlayout.SplitLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
@@ -72,6 +74,13 @@ public class MasterDetailView extends Div implements BeforeEnterObserver {
 
         ComboBox<String> comboBox = new ComboBox<>("Important");
         comboBox.setItems("Yes", "No");
+        comboBox.addValueChangeListener( e -> {
+            if (!e.isFromClient()) {
+                Notification.show("Chose " + e.getValue());
+                comboBox.clear();
+            }
+        });
+
         grid.getColumnByKey("important").setEditorComponent(comboBox);
 
         gridBinder.forField(comboBox).
@@ -101,6 +110,8 @@ public class MasterDetailView extends Div implements BeforeEnterObserver {
             grid.getEditor().editItem(bean);
         }));
 
+
+        
         editColumn.setEditorComponent(new Button("Save", e -> {
             try {
                 gridBinder.writeBean(samplePerson);
